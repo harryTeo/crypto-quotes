@@ -1,0 +1,86 @@
+body {
+  padding: 15px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00B7FF;
+}
+a:active {
+	outline: none;
+}
+.container {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 94vw;
+  }
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.countdown {
+  float: left;
+  margin-top: 25px;
+  margin-left: 10px;
+}
+.dropdown {
+	float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 30px;
+}
+.dropdown-menu-center {
+  left: 50% !important;
+  right: auto !important;
+  text-align: center !important;
+  transform: translate(-50%, 0) !important;
+}
+table.table > tbody > tr > td {
+	height: 50px;
+	vertical-align: middle;
+}
+table td .btn {
+	font-size: 12px;
+}
+table.table-sortable tbody tr {
+  cursor: move;
+}
+.buy {
+	color: #26a69a;
+}
+.sell {
+	color: #d9534f;
+}
+#data-analysis-section {
+
+}
+#data-analysis-section h1 {
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#data-analysis-table {
+
+}
+.title {
+  font-weight: bold;
+}
+.auxiliary-span {
+  display: block;
+  font-style: italic;
+  color: #333;
+  font-size: 12px;
+}
+.currency-auxiliary-span {
+  display: block;
+  font-style: italic;
+  color: #333;
+  font-size: 12px; 
+}
+.max-profit-cell {
+  font-size: 18px;
+  font-weight: bold;
+}

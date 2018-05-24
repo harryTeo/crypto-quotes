@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crypto Quotes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
+  <body>
+
+		<div class="container">
+
+			<div class="countdown">
+				<p>Next refresh: <span id="time"></span>
+<!-- 		  		<select id="refresh-interval">
+						<option value="1m">1m</option>
+					  <option value="2m">2m</option>
+					  <option value="5m">5m</option>
+					  <option value="10m">10m</option>
+				  </select>	 -->
+				</p>
+			</div>	
+			<div class="dropdown">
+			  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">USD <span class="caret"></span></button>
+			  <ul class="dropdown-menu dropdown-menu-center">
+			    <li><a href="#" id="usdLink">USD</a></li>
+			    <li><a href="#" id="eurLink">EUR</a></li>
+			    <li><a href="#" id="btcLink">BTC</a></li>
+			  </ul>
+			</div>  		
+		  <div class="row clearfix">
+		    <div class="col-xs-12 table-responsive">
+					<table class="table table-bordered table-hover table-sortable" id="crypto-quotes-table">
+						<thead>
+							<tr>
+								<th class="text-center"></th>
+								<th class="text-center" colspan="2">Coinbase</th>
+								<th class="text-center" colspan="2">Kraken</th>
+								<th class="text-center" colspan="2">Bitstamp</th>
+								<th class="text-center" colspan="2">Binance</th>
+								<th class="text-center" colspan="2">Poloniex</th>
+								<th class="text-center" colspan="2">Bitfinex</th>
+								<th class="text-center" colspan="2">Hitbtc</th>
+								<th class="text-center" colspan="2">Gemini</th>						
+		    				<th class="text-center">CoinCap</th>
+							</tr>
+		    			<tr>
+		    				<th class="text-center">Name</th>
+								<th class="text-center buy">Buy</th>
+								<th class="text-center sell">Sell</th>
+								<th class="text-center buy">Buy</th>
+								<th class="text-center sell">Sell</th>
+								<th class="text-center buy">Buy</th>
+								<th class="text-center sell">Sell</th>
+								<th class="text-center buy">Buy</th>
+								<th class="text-center sell">Sell</th>
+								<th class="text-center buy">Buy</th>
+								<th class="text-center sell">Sell</th>
+								<th class="text-center buy">Buy</th>
+								<th class="text-center sell">Sell</th>
+								<th class="text-center buy">Buy</th>
+								<th class="text-center sell">Sell</th>
+								<th class="text-center buy">Buy</th>
+								<th class="text-center sell">Sell</th>												
+								<th class="text-center">Spot Price</th>
+							</tr>							
+						</thead>
+						<tbody class="text-center">												
+		    			<tr class="hidden">
+								<td></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>						
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>		
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>		
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>											
+								<td></td>										
+		    				<td>
+								  <select data-current-coin="">
+		        				<option value="">Option</option>
+								  </select>
+								</td>
+		            <td>
+		              <button class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
+		            </td>
+							</tr>					
+		    			<tr>
+								<td></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>						
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>	
+								<td class="buy"></td>
+								<td class="sell"></td>					
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>																		
+								<td></td>												
+		    				<td>
+								  <select disabled data-current-coin="">
+		        				<option value="">Option</option>
+								  </select>
+								</td>
+							</tr>
+		    			<tr>   				
+								<td></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>						
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>		
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>																						
+								<td></td>												
+		    				<td>
+								  <select disabled data-current-coin="">
+		        				<option value="">Option</option>
+								  </select>
+								</td>
+							</tr>	
+		    			<tr>   				
+								<td></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>						
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>	
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>																							
+								<td></td>												
+		    				<td>
+								  <select disabled data-current-coin="">
+		        				<option value="">Option</option>
+								  </select>
+								</td>
+							</tr>	
+		    			<tr>   				
+								<td></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>						
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>		
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>																						
+								<td></td>											
+		    				<td>
+								  <select disabled data-current-coin="">
+		        				<option value="">Option</option>
+								  </select>
+								</td>
+							</tr>		
+		    			<tr>   				
+								<td></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>						
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>	
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>																	
+								<td></td>											
+		    				<td>
+								  <select disabled data-current-coin="">
+		        				<option value="">Option</option>
+								  </select>
+								</td>
+							</tr>		
+		    			<tr>   				
+								<td></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>						
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>
+								<td class="buy"></td>
+								<td class="sell"></td>																		
+								<td></td>											
+		    				<td>
+								  <select data-current-coin="">
+		        				<option value="">Option</option>
+								  </select>
+								</td>
+		            <td>
+		              <button class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
+		            </td>
+							</tr>																													
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<a id="add_row" class="btn btn-default pull-right">Add Row</a>
+
+		  <div class="row" id="data-analysis-section">
+		  	<h1>Data Analysis</h1>
+		    <div class="col-xs-12 table-responsive">	
+					<table class="table table-bordered" id="data-analysis-table">
+						<tbody class="text-center">												
+		    			<tr id="BTC" class="row-padding">
+								<tr class="BTC buy-row">
+									<td class="title" rowspan="3">BTC <span class="auxiliary-span">(Bitcoin)</span></td>
+									<td class="buy">Buy<span class="auxiliary-span">(asc)</span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>					
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>	
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>					
+								</tr>
+								<tr class="BTC sell-row">
+									<td class="sell">Sell<span class="auxiliary-span">(desc)</span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>						
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+								</tr>
+								<tr class="BTC profit-row">
+									<td><strong><em>Max Profit<br>Opportunity</em></strong></td>
+									<td class="max-profit-cell"><span class="number-cell"></span><span class="currency-auxiliary-span">(USD)</span></td>
+									<td class="max-profit-cell"><span class="percentage-cell"></span><span class="auxiliary-span">(%)</span></td>
+								</tr>	
+							</tr>		
+		    			<tr id="ETH">
+								<tr class="ETH buy-row">
+									<td class="title" rowspan="3">ETH <span class="auxiliary-span">(Ethereum)</span></td>
+									<td class="buy">Buy<span class="auxiliary-span">(asc)</span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>					
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>	
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>														
+								</tr>
+								<tr class="ETH sell-row">
+									<td class="sell">Sell<span class="auxiliary-span">(desc)</span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>						
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+								</tr>
+								<tr class="ETH profit-row">
+									<td><strong><em>Max Profit<br>Opportunity</em></strong></td>
+									<td class="max-profit-cell"><span class="number-cell"></span><span class="currency-auxiliary-span">(USD)</span></td>
+									<td class="max-profit-cell"><span class="percentage-cell"></span><span class="auxiliary-span">(%)</span></td>
+								</tr>	
+							</tr>		
+		    			<tr id="LTC">
+								<tr class="LTC buy-row">
+									<td class="title" rowspan="3">LTC <span class="auxiliary-span">(Litecoin)</span></td>
+									<td class="buy">Buy<span class="auxiliary-span">(asc)</span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>					
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>	
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>													
+								</tr>
+								<tr class="LTC sell-row">
+									<td class="sell">Sell<span class="auxiliary-span">(desc)</span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>						
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+								</tr>
+								<tr class="LTC profit-row">
+									<td><strong><em>Max Profit<br>Opportunity</em></strong></td>
+									<td class="max-profit-cell"><span class="number-cell"></span><span class="currency-auxiliary-span">(USD)</span></td>
+									<td class="max-profit-cell"><span class="percentage-cell"></span><span class="auxiliary-span">(%)</span></td>
+								</tr>	
+							</tr>		
+		    			<tr id="XRP">
+								<tr class="XRP buy-row">
+									<td class="title" rowspan="3">XRP <span class="auxiliary-span">(Ripple)</span></td>
+									<td class="buy">Buy<span class="auxiliary-span">(asc)</span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>					
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>		
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>													
+								</tr>
+								<tr class="XRP sell-row">
+									<td class="sell">Sell<span class="auxiliary-span">(desc)</span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>						
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+								</tr>
+								<tr class="XRP profit-row">
+									<td><strong><em>Max Profit<br>Opportunity</em></strong></td>
+									<td class="max-profit-cell"><span class="number-cell"></span><span class="currency-auxiliary-span">(USD)</span></td>
+									<td class="max-profit-cell"><span class="percentage-cell"></span><span class="auxiliary-span">(%)</span></td>
+								</tr>	
+							</tr>		
+		    			<tr id="BCH">
+								<tr class="BCH buy-row">
+									<td class="title" rowspan="3">BCH <span class="auxiliary-span">(Bitcoin Cash)</span></td>
+									<td class="buy">Buy<span class="auxiliary-span">(asc)</span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>					
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>		
+									<td class="buy"><span class="quote-span"></span><span class="auxiliary-span"></span></td>													
+								</tr>
+								<tr class="BCH sell-row">
+									<td class="sell">Sell<span class="auxiliary-span">(desc)</span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>						
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+									<td class="sell"><span class="quote-span"></span><span class="auxiliary-span"></span></td>
+								</tr>
+								<tr class="BCH profit-row">
+									<td><strong><em>Max Profit<br>Opportunity</em></strong></td>
+									<td class="max-profit-cell"><span class="number-cell"></span><span class="currency-auxiliary-span">(USD)</span></td>
+									<td class="max-profit-cell"><span class="percentage-cell"></span><span class="auxiliary-span">(%)</span></td>
+								</tr>	
+							</tr>																	
+						</tbody>			
+					</table>
+				</div>
+			</div> 
+
+		</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    
+  </body>
+</html>
